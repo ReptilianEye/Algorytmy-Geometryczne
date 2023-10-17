@@ -1,0 +1,2 @@
+conda activate bit-alg
+jupyter notebook
