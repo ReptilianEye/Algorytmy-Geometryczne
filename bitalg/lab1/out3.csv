@@ -1,0 +1,17 @@
+,,left,middle,right
+eps=1e-14,mat_det_2x2,18,68,14
+eps=1e-14,mat_det_2x2_lib,22,68,10
+eps=1e-14,mat_det_3x3,0,97,3
+eps=1e-14,mat_det_3x3_lib,5,88,7
+eps=1e-12,mat_det_2x2,10,83,7
+eps=1e-12,mat_det_2x2_lib,18,76,6
+eps=1e-12,mat_det_3x3,0,100,0
+eps=1e-12,mat_det_3x3_lib,0,100,0
+eps=1e-10,mat_det_2x2,0,100,0
+eps=1e-10,mat_det_2x2_lib,0,100,0
+eps=1e-10,mat_det_3x3,0,100,0
+eps=1e-10,mat_det_3x3_lib,0,100,0
+eps=1e-08,mat_det_2x2,0,100,0
+eps=1e-08,mat_det_2x2_lib,0,100,0
+eps=1e-08,mat_det_3x3,0,100,0
+eps=1e-08,mat_det_3x3_lib,0,100,0

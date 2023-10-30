@@ -1,0 +1,17 @@
+,,left,middle,right
+eps=1e-14,mat_det_2x2,49954,10,50036
+eps=1e-14,mat_det_2x2_lib,49951,12,50037
+eps=1e-14,mat_det_3x3,49957,0,50043
+eps=1e-14,mat_det_3x3_lib,49957,0,50043
+eps=1e-12,mat_det_2x2,49954,10,50036
+eps=1e-12,mat_det_2x2_lib,49951,12,50037
+eps=1e-12,mat_det_3x3,49957,0,50043
+eps=1e-12,mat_det_3x3_lib,49957,0,50043
+eps=1e-10,mat_det_2x2,49954,10,50036
+eps=1e-10,mat_det_2x2_lib,49951,12,50037
+eps=1e-10,mat_det_3x3,49957,0,50043
+eps=1e-10,mat_det_3x3_lib,49957,0,50043
+eps=1e-08,mat_det_2x2,49954,10,50036
+eps=1e-08,mat_det_2x2_lib,49951,12,50037
+eps=1e-08,mat_det_3x3,49957,0,50043
+eps=1e-08,mat_det_3x3_lib,49957,0,50043
