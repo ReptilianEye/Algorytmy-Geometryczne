@@ -1,5 +1,6 @@
 __pycache__
 train/
-.idea/
 dist/
 *.egg-info
+*.in
+*.out
