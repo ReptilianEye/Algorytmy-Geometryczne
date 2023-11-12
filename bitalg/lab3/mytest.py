@@ -205,7 +205,8 @@ class TriBST:
 
         # toFind = Edge((x, 0), (x, 0))
         # x = x
-        i = bisect.bisect(self.tree, x, key=lambda x: x.firstToLeft(0))
+        A = [e.firstToLeft(0) for e in self.tree]
+        i = bisect.bisect(A, x)
         if i != 0:
             return i-1
 
