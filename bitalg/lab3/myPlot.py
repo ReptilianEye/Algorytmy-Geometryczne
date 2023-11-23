@@ -1,10 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.collections as mcoll
-import matplotlib.colors as mcolors
 from matplotlib.widgets import Button
-import json as js
-from math import inf
 
 
 def dist(point1, point2):
