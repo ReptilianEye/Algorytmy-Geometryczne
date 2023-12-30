@@ -49,9 +49,13 @@ class Beachline:
 
     def replace(self, arc_node: Node, new_arc: Arc):
         arc = arc_node.arc
-        new_arc.setEdgesWithHigher(arc)
+        # new_arc.setEdgesWithHigher(arc)
         old_arc_l = Arc(arc.focus)
         old_arc_r = Arc(arc.focus)  # deepcopy(arc)
+        new_arc.setLeftEdge(old_arc_l)
+        new_arc.setRightEdge(old_arc_r)
+        old_arc_l.edgeGoingLeft = arc.edgeGoingLeft
+        old_arc_r.edgeGoingRight = arc.edgeGoingRight
         #       old_new
         #      /       \
         # old_arc_l   new_old
@@ -149,16 +153,17 @@ class Beachline:
 
         return circle_event
 
-    def isCirleEvent(self, arc_node):
-        left = self.leftNbour(arc_node)
-        right = self.rightNbour(arc_node)
-        if left == None or right == None:
+    def isCirleEvent(self, arc_node: Node):
+        # left = self.leftNbour(arc_node)
+        # right = self.rightNbour(arc_node)
+        # if left == None or right == None:
+        #     return
+        leftEdge = arc_node.arc.edgeGoingLeft
+        rightEdge = arc_node.arc.edgeGoingRight
+        if leftEdge == None or rightEdge == None:
             return
-        el = left.arc.er
-        er = right.arc.el
-        if el == None or er == None:
-            return
-        inter = getIntersect(el.start, el.direction, er.start, er.direction)
+        inter = getIntersect(leftEdge.start, leftEdge.direction,
+                             rightEdge.start, rightEdge.direction)
         return inter
 
     def leftNbour(self, node):

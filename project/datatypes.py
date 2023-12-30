@@ -56,34 +56,45 @@ class Arc:
         self.a = None
         self.b = None
         self.c = None
+        if self.directrix is not None:
+            self.updateABC()
         self.__class__.objects.append(self)
 
-    def setEdgesWithHigher(self, higher_arc):
-        start_x = self.focus.x
-        start = Point(start_x, higher_arc.__unit_val(start_x))
-        left_intersection, right_intersection = self.lookupIntersectionsWithHigher(
-            higher_arc)
-        leftEdge = Edge(start, left_intersection)
+    # def setEdgesWithHigher(self, higher_arc):
+    #     start_x = self.focus.x
+    #     start = Point(start_x, higher_arc.__unit_val(start_x))
+    #     left_intersection, right_intersection = self.lookupIntersectionsWithHigher(
+    #         higher_arc)
+    #     leftEdge = Edge(start, left_intersection)
+    #     rightEdge = Edge(start, right_intersection)
+    #     leftEdge.twin = rightEdge
+    #     rightEdge.twin = leftEdge
+    #     self.edgeGoingLeft = leftEdge
+    #     self.edgeGoingRight = rightEdge
+
+    def setRightEdge(self, side_arc, start=None):
+        if start is None:
+            start_x = self.focus.x
+            start = Point(start_x, side_arc.__unit_val(start_x))
+        right_intersection = self.lookForIntersectionBetween(side_arc)
         rightEdge = Edge(start, right_intersection)
-        leftEdge.twin = rightEdge
-        rightEdge.twin = leftEdge
-        self.edgeGoingLeft = leftEdge
+        # leftEdge = self.edgeGoingLeft
+        # leftEdge.twin = rightEdge
+        # rightEdge.twin = leftEdge
+        side_arc.edgeGoingLeft = rightEdge
         self.edgeGoingRight = rightEdge
 
-    def setRightEdge(self, arc_to_right, start):
-        right_intersection = self.lookForIntersectionBetween(arc_to_right)
-        rightEdge = Edge(start, right_intersection)
-        leftEdge = self.edgeGoingLeft
-        leftEdge.twin = rightEdge
-        rightEdge.twin = leftEdge
-        self.edgeGoingRight = rightEdge
+    def setLeftEdge(self, side_arc, start=None):
+        if start is None:
+            start_x = self.focus.x
+            start = Point(start_x, side_arc.__unit_val(start_x))
 
-    def setLeftEdge(self, arc_to_right, start):
-        left_intersection = arc_to_right.lookForIntersectionBetween(self)
+        left_intersection = side_arc.lookForIntersectionBetween(self)
         leftEdge = Edge(start, left_intersection)
-        rightEdge = self.edgeGoingRight
-        leftEdge.twin = rightEdge
-        rightEdge.twin = leftEdge
+        # rightEdge = self.edgeGoingRight
+        # leftEdge.twin = rightEdge
+        # rightEdge.twin = leftEdge
+        side_arc.edgeGoingRight = leftEdge
         self.edgeGoingLeft = leftEdge
 
     @classmethod

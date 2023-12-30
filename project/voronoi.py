@@ -64,15 +64,21 @@ class Voronoi:
         al: Arc = lnode.arc
         ar: Arc = rnode.arc
 
-        al.setRightEdge(ar, point)
-        ar.setLeftEdge(al, point)
+        closedLeft = leaf.arc.edgeGoingLeft
+        closedRight = leaf.arc.edgeGoingRight
 
-        leftEdge = al.edgeGoingLeft
-        rightEdge = ar.edgeGoingRight
-        leftEdge.end = point
-        rightEdge.end = point
-        self.D.append((leftEdge.start, leftEdge.end))
-        self.D.append((rightEdge.start, rightEdge.end))
+        closedLeft.end = point
+        closedRight.end = point
+        self.D.append((closedLeft.start, closedLeft.end))
+        self.D.append((closedRight.start, closedRight.end))
+
+        al.setRightEdge(ar, point)
+        # ar.setLeftEdge(al, point) # not needed because setRightEdge does it
+
+        # leftEdge = al.edgeGoingLeft
+        # rightEdge = ar.edgeGoingRight
+        # leftEdge.end = point
+        # rightEdge.end = point
 
         left_circle_event, right_circle_event = T.handleSquize(leaf)
         if left_circle_event != None:
