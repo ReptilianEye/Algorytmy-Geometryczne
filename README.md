@@ -1,3 +1,5 @@
+- forked from https://github.com/aghbit/Algorytmy-Geometryczne
+
 # Algorytmy-Geometryczne
 
 ## Uwagi
